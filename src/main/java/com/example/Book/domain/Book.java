@@ -24,7 +24,7 @@ public class Book {
 	private Double price;
 	
 	
-	public Book(String title, String author, int year, String isbn, double price) {
+	public Book(String title, String author, Integer year, String isbn, Double price) {
 		super();
 		
 		this.title = title;
@@ -67,12 +67,12 @@ public class Book {
 	}
 
 
-	public int getYear() {
+	public Integer getYear() {
 		return year;
 	}
 
 
-	public void setYear(int year) {
+	public void setYear(Integer year) {
 		this.year = year;
 	}
 
@@ -87,12 +87,12 @@ public class Book {
 	}
 
 
-	public double getPrice() {
+	public Double getPrice() {
 		return price;
 	}
 
 
-	public void setPrice(double price) {
+	public void setPrice(Double price) {
 		this.price = price;
 	}
 
