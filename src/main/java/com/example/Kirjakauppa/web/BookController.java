@@ -15,12 +15,12 @@ import com.example.Kirjakauppa.domain.BookRepository;
 public class BookController {
 	
 	@Autowired
-	private BookRepository repository;
+	private BookRepository bookRepository;
 	
 	//All books
 	@RequestMapping("/booklist")
 	public String booksToList(Model model) {
-		model.addAttribute("books", repository.findAll());
+		model.addAttribute("books", bookRepository.findAll());
 		return "booklistpage";
 	}
 
@@ -34,7 +34,7 @@ public class BookController {
 	
 	@RequestMapping(value="/save", method = RequestMethod.POST)
 	public String saveBook(Book book) {
-		repository.save(book);
+		bookRepository.save(book);
 		return "redirect:booklist";
 	}
 	
@@ -42,21 +42,21 @@ public class BookController {
 	//Delete book
 	@RequestMapping(value="/delete/{id}", method = RequestMethod.GET)
 	public String deleteBook(@PathVariable("id") Long bookId, Model model)  {
-		repository.deleteById(bookId);
+		bookRepository.deleteById(bookId);
 		return "redirect:../booklist";
 	}
 	
 	//Edit book
 	@RequestMapping(value="/editbook/{id}", method = RequestMethod.GET)
 	public String editBook(@PathVariable("id") Long bookId, Model model) {
-		Book book = repository.findById(bookId).get();
+		Book book = bookRepository.findById(bookId).get();
 		model.addAttribute("book", book);
 		return "editbook";
 	}
 	
 	@RequestMapping(value="/editbook/{id}", method = RequestMethod.POST)
 	public String editBook(Book book)  {
-		repository.save(book);
+		bookRepository.save(book);
 		return "redirect:../booklist";
 	}
 	
