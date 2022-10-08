@@ -8,13 +8,12 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 public class Book {
-	
-	@ManyToOne
-	@JoinColumn(name="categoryid")
-	private Category category;
-	
+
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -25,6 +24,13 @@ public class Book {
 	
 	@Column(name="publishing_year")
 	private int year;
+	
+	@ManyToOne
+	@JoinColumn(name="categoryid")
+	@JsonIgnore
+	@JsonIgnoreProperties("booklist")
+	private Category category;
+	
 
 	
 	//Constructors
