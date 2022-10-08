@@ -24,7 +24,7 @@ public class KirjakauppaApplication {
 			Book b2 = new Book("Kalle Kumiankka", "Matias Grahn", "0425037215", 21.90, 1985);
 			
 			Category c1 = new Category("Horror");
-			Category c2 = new Category("Classical");
+			Category c2 = new Category("History");
 			Category c3 = new Category("Fiction");
 			
 			bookRepository.save(b1);

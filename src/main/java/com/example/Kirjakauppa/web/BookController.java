@@ -32,7 +32,7 @@ public class BookController {
 		return "addbook";
 	}
 	
-	@RequestMapping(value="/save", method = RequestMethod.POST)
+	@RequestMapping(value="/savebook", method = RequestMethod.POST)
 	public String saveBook(Book book) {
 		bookRepository.save(book);
 		return "redirect:booklist";
