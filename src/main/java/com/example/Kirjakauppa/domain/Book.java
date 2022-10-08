@@ -5,9 +5,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Book {
+	
+	@ManyToOne
+	@JoinColumn(name="categoryid")
+	private Category category;
+	
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -30,6 +37,16 @@ public class Book {
 	this.year = year;
 	}
 	
+	public Book(String title, String author, String isbn, double price, int year, Category category) {
+		super();
+		this.category = category;
+		this.title = title;
+		this.author = author;
+		this.isbn = isbn;
+		this.price = price;
+		this.year = year;
+	}
+
 	public Book() {
 		this.title = "";
 		this.author = "";
@@ -65,9 +82,11 @@ public class Book {
 	public int getYear() {
 		return year;
 	}
+	
+	public Category getCategory() {
+		return category;
+	}
 
-	
-	
 	//Setters
 	public void setId(long id) {
 		this.id = id;
@@ -91,6 +110,10 @@ public class Book {
 
 	public void setYear(int year) {
 		this.year = year;
+	}
+	
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 
 	@Override

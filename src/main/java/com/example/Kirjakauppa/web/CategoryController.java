@@ -26,6 +26,7 @@ public class CategoryController {
 	
 	
 	
+	
 	//Add new category
 	@RequestMapping(value="/addcategory")
 	public String addCategory(Model model) {
