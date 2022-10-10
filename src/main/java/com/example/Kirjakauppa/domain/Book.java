@@ -34,14 +34,6 @@ public class Book {
 
 	
 	//Constructors
-	public Book(String title, String author, String isbn, double price, int year) {
-	super();
-	this.title = title;
-	this.author = author;
-	this.isbn = isbn;
-	this.price = price;
-	this.year = year;
-	}
 	
 	public Book(String title, String author, String isbn, double price, int year, Category category) {
 		super();
@@ -62,7 +54,15 @@ public class Book {
 	}
 	
 	
-	
+	public Book(String title, String author, String isbn, double price, int year) {
+		super();
+		this.title = title;
+		this.author = author;
+		this.isbn = isbn;
+		this.price = price;
+		this.year = year;
+	}
+
 	//Getters
 	public long getId() {
 		return id;

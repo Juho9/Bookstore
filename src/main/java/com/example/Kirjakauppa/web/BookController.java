@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -82,6 +83,13 @@ public class BookController {
 	@RequestMapping(value="/booksrest/{id}", method = RequestMethod.GET)
 	public @ResponseBody Optional<Book> findBookRest(@PathVariable("id") Long id) {
 		return bookRepository.findById(id);
+	}
+	
+	//Rest for saving new book
+	@RequestMapping(value="/booksrest", method = RequestMethod.POST)
+	public @ResponseBody Book saveBookRest(@RequestBody Book book) {
+		return bookRepository.save(book);
+		
 	}
 	
 	
