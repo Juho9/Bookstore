@@ -92,5 +92,11 @@ public class BookController {
 		
 	}
 	
+	//LOGIN TESTI
+	@RequestMapping(value="/login")
+	public String login() {
+		return "login";
+	}
+	
 	
 }
