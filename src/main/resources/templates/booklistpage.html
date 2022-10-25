@@ -26,6 +26,8 @@
     		<td th:text="${book.price}"></td>
     		
     		<td><a th:href="@{/delete/{id}(id=${book.id})}">Poista</a></td>
+    		
+    		<td><a th:href="@{/edit/{id}(id=${book.id})}">Muokkaa</a></td>
     				    		
     	</tr>
 		
